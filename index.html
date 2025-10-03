@@ -468,9 +468,35 @@
         display: inline-block;
       }
 
-      /* Slide 8 - Illustration Style */
+      /* Slide 8 - Moodboard Masonry */
       .slide-8 {
         background: #1a1a2e;
+      }
+
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 20px;
+        margin-top: 40px;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 20px;
+        background: #0a0a0a;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .masonry-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+      }
+
+      .masonry-item img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       .illustration-grid {
@@ -641,6 +667,10 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
+        .masonry-grid {
+          column-count: 2;
+        }
+
         .typography-showcase,
         .pattern-grid,
         .culture-grid {
@@ -654,6 +684,10 @@
         .photo-grid,
         .illustration-grid {
           grid-template-columns: 1fr;
+        }
+
+        .masonry-grid {
+          column-count: 1;
         }
 
         .cover-title {
@@ -895,10 +929,10 @@
         <div class="slide-number">04 / 10</div>
       </div>
 
-      <!-- Slide 5: Photography Style -->
+      <!-- Slide 5: Creative Direction -->
       <div class="slide slide-5" data-slide="5">
         <div class="slide-content">
-          <h2 class="section-title">Стиль фотографії</h2>
+          <h2 class="section-title">Теми та напрямки</h2>
           <div style="margin-bottom: 40px">
             <p
               style="
@@ -1175,109 +1209,126 @@
         <div class="slide-number">07 / 10</div>
       </div>
 
-      <!-- Slide 8: Illustration Style -->
+      <!-- Slide 8: Moodboard -->
       <div class="slide slide-8" data-slide="8">
         <div class="slide-content">
-          <h2 class="section-title">Стиль ілюстрацій</h2>
-          <div class="illustration-grid">
-            <div class="illustration-card">
-              <span class="illustration-icon">🗼</span>
-              <div class="illustration-title">Силуети Сеула</div>
-              <div class="illustration-desc">
-                Вежа N Seoul, горизонт Ганнаму, знакові корейські локації в
-                мінімалістичному стилі
-              </div>
+          <h2 class="section-title">Moodboard</h2>
+          <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Візуальний настрій та атмосфера бренду FUNJU</p>
+
+          <div class="masonry-grid">
+            <div class="masonry-item">
+              <img src="moodboard/1.jpg" alt="Moodboard 1">
             </div>
-            <div class="illustration-card">
-              <span class="illustration-icon">💫</span>
-              <div class="illustration-title">K-pop графіка</div>
-              <div class="illustration-desc">
-                Сміливі форми, градієнти, голографічні ефекти, натхненні K-pop
-                естетикою
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/2.jpg" alt="Moodboard 2">
             </div>
-            <div class="illustration-card">
-              <span class="illustration-icon">🏮</span>
-              <div class="illustration-title">Модернізм Ханбок</div>
-              <div class="illustration-desc">
-                Традиційні корейські візерунки в геометричних сучасних формах
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/3.jpg" alt="Moodboard 3">
             </div>
-            <div class="illustration-card">
-              <span class="illustration-icon">🍾</span>
-              <div class="illustration-title">Іконка пляшки</div>
-              <div class="illustration-desc">
-                Стилізовані, колекційні ілюстрації пляшки соджу
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/4.jpg" alt="Moodboard 4">
             </div>
-            <div class="illustration-card">
-              <span class="illustration-icon">🔤</span>
-              <div class="illustration-title">Хангиль типо-арт</div>
-              <div class="illustration-desc">
-                Корейські літери як декоративні художні елементи
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/5.jpg" alt="Moodboard 5">
             </div>
-            <div class="illustration-card">
-              <span class="illustration-icon">💚</span>
-              <div class="illustration-title">Динаміка рідини</div>
-              <div class="illustration-desc">
-                Анімація сплеску, рух, графіка текучості для веб та діджитал
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/6.jpg" alt="Moodboard 6">
             </div>
-          </div>
-          <div
-            style="
-              margin-top: 50px;
-              padding: 40px;
-              background: linear-gradient(
-                135deg,
-                rgba(230, 57, 70, 0.1),
-                rgba(22, 219, 147, 0.1)
-              );
-              border-radius: 20px;
-            "
-          >
-            <strong style="color: #e63946; font-size: 20px"
-              >Принципи дизайну:</strong
-            >
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                margin-top: 20px;
-              "
-            >
-              <div>
-                <div
-                  style="font-size: 16px; font-weight: 700; margin-bottom: 10px"
-                >
-                  ✨ Сміливість
-                </div>
-                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-                  Яскраві кольори, несподівані комбінації
-                </div>
-              </div>
-              <div>
-                <div
-                  style="font-size: 16px; font-weight: 700; margin-bottom: 10px"
-                >
-                  🔷 Простота
-                </div>
-                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-                  Чисті лінії, мінімалізм
-                </div>
-              </div>
-              <div>
-                <div
-                  style="font-size: 16px; font-weight: 700; margin-bottom: 10px"
-                >
-                  💚 Енергія
-                </div>
-                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-                  Динаміка, рух, життя
-                </div>
-              </div>
+            <div class="masonry-item">
+              <img src="moodboard/7.jpg" alt="Moodboard 7">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/8.jpg" alt="Moodboard 8">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/9.jpg" alt="Moodboard 9">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/10.jpg" alt="Moodboard 10">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/11.jpg" alt="Moodboard 11">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/12.jpg" alt="Moodboard 12">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/13.jpg" alt="Moodboard 13">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/14.jpg" alt="Moodboard 14">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/15.jpg" alt="Moodboard 15">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/16.jpg" alt="Moodboard 16">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/17.jpg" alt="Moodboard 17">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/18.jpg" alt="Moodboard 18">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/19.jpg" alt="Moodboard 19">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/20.jpg" alt="Moodboard 20">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/21.jpg" alt="Moodboard 21">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/22.jpg" alt="Moodboard 22">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/23.jpg" alt="Moodboard 23">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/24.jpg" alt="Moodboard 24">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/25.jpg" alt="Moodboard 25">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/26.jpg" alt="Moodboard 26">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/27.jpg" alt="Moodboard 27">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/28.jpg" alt="Moodboard 28">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/29.jpg" alt="Moodboard 29">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/30.jpg" alt="Moodboard 30">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/31.jpg" alt="Moodboard 31">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/32.jpg" alt="Moodboard 32">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/33.jpg" alt="Moodboard 33">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/34.jpg" alt="Moodboard 34">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/35.jpg" alt="Moodboard 35">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/36.jpg" alt="Moodboard 36">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/37.jpg" alt="Moodboard 37">
+            </div>
+            <div class="masonry-item">
+              <img src="moodboard/38.jpg" alt="Moodboard 38">
             </div>
           </div>
         </div>

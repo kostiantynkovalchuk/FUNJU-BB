@@ -8,12 +8,20 @@
     {
       "src": "images/**",
       "use": "@vercel/static"
+    },
+    {
+      "src": "moodboard/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/images/(.*)",
       "dest": "/images/$1"
+    },
+    {
+      "src": "/moodboard/(.*)",
+      "dest": "/moodboard/$1"
     },
     {
       "src": "/(.*)",
