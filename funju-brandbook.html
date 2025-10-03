@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNJU Soju - @5=41C: 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            position: relative;
+            padding: 60px;
+        }
+
+        .slide-content {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: #E63946;
+            transform: scale(1.3);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+        }
+
+        /* Slide 1 - Cover */
+        .slide-1 {
+            background: linear-gradient(135deg, #1A1A2E 0%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .slide-1::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(230,57,70,0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cover-title {
+            font-size: 120px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #E63946 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-subtitle {
+            font-size: 32px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .korean-text {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 48px;
+            color: #E63946;
+            margin-bottom: 60px;
+        }
+
+        /* Slide 2 - Brand Essence */
+        .slide-2 {
+            background: #1A1A2E;
+        }
+
+        .section-title {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #E63946;
+        }
+
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .essence-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .essence-card:hover {
+            transform: translateY(-10px);
+            border-color: #E63946;
+            box-shadow: 0 20px 60px rgba(230,57,70,0.3);
+        }
+
+        .essence-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .essence-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #E63946;
+        }
+
+        .essence-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Slide 3 - Colors */
+        .slide-3 {
+            background: #0a0a0a;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .color-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .color-swatch {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            transition: transform 0.3s;
+        }
+
+        .color-card:hover .color-swatch {
+            transform: scale(1.05);
+        }
+
+        .color-info {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+        }
+
+        .color-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .color-values {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+
+        /* Slide 4 - Typography */
+        .slide-4 {
+            background: #1A1A2E;
+        }
+
+        .typography-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .font-example {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .font-name {
+            font-size: 18px;
+            color: #E63946;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .font-display {
+            font-size: 72px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .font-alphabet {
+            font-size: 24px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .font-usage {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+
+        /* Slide 5 - Photography Style */
+        .slide-5 {
+            background: #0a0a0a;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .photo-example {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #E63946 0%, #FF6B9D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Slide 6 - Patterns */
+        .slide-6 {
+            background: #1A1A2E;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pattern-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0a0a0a;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pattern-visual {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+        }
+
+        .pattern-bg-1 {
+            background: repeating-linear-gradient(45deg, #E63946, #E63946 10px, #1A1A2E 10px, #1A1A2E 20px);
+        }
+
+        .pattern-bg-2 {
+            background: radial-gradient(circle at 50% 50%, #16DB93 2px, transparent 2px);
+            background-size: 30px 30px;
+            background-color: #1A1A2E;
+        }
+
+        .pattern-bg-3 {
+            background: linear-gradient(90deg, #E63946 1px, transparent 1px),
+                        linear-gradient(0deg, #E63946 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-color: #1A1A2E;
+        }
+
+        .pattern-bg-4 {
+            background: conic-gradient(from 45deg at 50% 50%, #FF6B9D 0deg, #FFB347 90deg, #16DB93 180deg, #E63946 270deg, #FF6B9D 360deg);
+            opacity: 0.3;
+        }
+
+        .pattern-info {
+            padding: 25px;
+        }
+
+        .pattern-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #E63946;
+        }
+
+        .pattern-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* Slide 7 - Cultural Elements */
+        .slide-7 {
+            background: #0a0a0a;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .culture-card {
+            background: rgba(230,57,70,0.05);
+            border: 2px solid #E63946;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(230,57,70,0.1), transparent);
+        }
+
+        .culture-korean {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 48px;
+            color: #E63946;
+            margin-bottom: 15px;
+        }
+
+        .culture-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .culture-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .culture-application {
+            font-size: 14px;
+            color: #16DB93;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(22,219,147,0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Slide 8 - Illustration Style */
+        .slide-8 {
+            background: #1A1A2E;
+        }
+
+        .illustration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .illustration-card {
+            background: #0a0a0a;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .illustration-card:hover {
+            transform: translateY(-10px);
+            border-color: #E63946;
+        }
+
+        .illustration-icon {
+            font-size: 120px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .illustration-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #E63946;
+        }
+
+        .illustration-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* Slide 9 - Website Mockup */
+        .slide-9 {
+            background: #0a0a0a;
+        }
+
+        .website-mockup {
+            background: rgba(255,255,255,0.03);
+            border-radius: 30px;
+            padding: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .browser-bar {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px 15px 0 0;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .browser-dot:nth-child(1) { background: #E63946; }
+        .browser-dot:nth-child(2) { background: #FFB347; }
+        .browser-dot:nth-child(3) { background: #16DB93; }
+
+        .website-content {
+            background: #1A1A2E;
+            border-radius: 0 0 15px 15px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .mockup-hero {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #E63946, #FF6B9D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mockup-text {
+            font-size: 24px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+        }
+
+        .mockup-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #E63946;
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .mockup-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(230,57,70,0.4);
+        }
+
+        /* Slide 10 - Contact */
+        .slide-10 {
+            background: linear-gradient(135deg, #E63946 0%, #1A1A2E 100%);
+        }
+
+        .final-message {
+            text-align: center;
+        }
+
+        .final-title {
+            font-size: 96px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .final-korean {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 48px;
+            margin-bottom: 60px;
+            opacity: 0.8;
+        }
+
+        .final-tagline {
+            font-size: 32px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 40px;
+            }
+
+            .cover-title {
+                font-size: 80px;
+            }
+
+            .section-title {
+                font-size: 48px;
+            }
+
+            .essence-grid,
+            .color-grid,
+            .photo-grid,
+            .illustration-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .typography-showcase,
+            .pattern-grid,
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .essence-grid,
+            .color-grid,
+            .photo-grid,
+            .illustration-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cover-title {
+                font-size: 60px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation" id="presentation">
+        <!-- Slide 1: Cover -->
+        <div class="slide slide-1" data-slide="1">
+            <div class="slide-content">
+                <div class="korean-text">¸ü</div>
+                <h1 class="cover-title">FUNJU</h1>
+                <p class="cover-subtitle">>@59AL:89 4CE. #:@0W=AL:0 4CH0.</p>
+                <p style="font-size: 18px; color: rgba(255,255,255,0.5); margin-top: 40px;">
+                    @5=41C: 2025 | 0?CA: ?@5<V0;L=>3> A>46C 2 #:@0W=V
+                </p>
+            </div>
+            <div class="slide-number">01 / 10</div>
+        </div>
+
+        <!-- Slide 2: Brand Essence -->
+        <div class="slide slide-2" data-slide="2">
+            <div class="slide-content">
+                <h2 class="section-title">!CBL 1@5=40</h2>
+                <div class="essence-grid">
+                    <div class="essence-card">
+                        <div class="essence-icon"><¯</div>
+                        <h3>&V;L>20 0C48B>@VO</h3>
+                        <p>#:@0W=FV 21-35 @>:V2, D0=0B8 K-pop, K-drama, :>@59AL:>W :C;LBC@8. &V=CNBL 02B5=B8G=VABL B0 5AB5B8:C.</p>
+                    </div>
+                    <div class="essence-card">
+                        <div class="essence-icon">(</div>
+                        <h3>>78FV>=C20==O</h3>
+                        <p>@5<V0;L=89 A>46C 7 ACG0A=8< 48709=><. VAB <V6 :>@59AL:>N B0 C:@0W=AL:>N :C;LBC@>N.</p>
+                    </div>
+                    <div class="essence-card">
+                        <div class="essence-icon">=«</div>
+                        <h3>1VFO=:0</h3>
+                        <p>V4GC9 4CE >@5W  ?;02=89, A<0G=89, :C;LBC@=> =0A8G5=89. >6=0 ?;OH:0  VAB>@VO.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">02 / 10</div>
+        </div>
+
+        <!-- Slide 3: Colors -->
+        <div class="slide slide-3" data-slide="3">
+            <div class="slide-content">
+                <h2 class="section-title">>;V@=0 ?0;VB@0</h2>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #E63946;">=%</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #E63946;">'5@2>=89 70EV4 >@5W</div>
+                            <div class="color-values">
+                                HEX: #E63946<br>
+                                RGB: 230, 57, 70<br>
+                                CMYK: 0, 85, 70, 0<br>
+                                <strong>0AB>AC20==O:</strong> :F5=B8, CTA, C?0:>2:0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #1A1A2E;"><</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #1A1A2E;">VG !5C;0</div>
+                            <div class="color-values">
+                                HEX: #1A1A2E<br>
+                                RGB: 26, 26, 46<br>
+                                CMYK: 80, 70, 55, 70<br>
+                                <strong>0AB>AC20==O:</strong> $>=, B8?>3@0DV:0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #16DB93;"><C</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #16DB93;">5;5=L 0==0<C</div>
+                            <div class="color-values">
+                                HEX: #16DB93<br>
+                                RGB: 22, 219, 147<br>
+                                CMYK: 65, 0, 45, 0<br>
+                                <strong>0AB>AC20==O:</strong> &8B@CA>289 A<0:, 5=5@3VO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FF6B9D;">=–</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #FF6B9D;"> >65289 E0=1>:</div>
+                            <div class="color-values">
+                                HEX: #FF6B9D<br>
+                                RGB: 255, 107, 157<br>
+                                CMYK: 0, 65, 15, 0<br>
+                                <strong>0AB>AC20==O:</strong> /1;CG=89 A<0:, 3@09;82VABL
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #0A3A5C;"><
+</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #0A3A5C;">!8=V9 CA0=</div>
+                            <div class="color-values">
+                                HEX: #0A3A5C<br>
+                                RGB: 10, 58, 92<br>
+                                CMYK: 100, 60, 30, 20<br>
+                                <strong>0AB>AC20==O:</strong> ;818=0, ?@5<VC<
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FFB347;"><Q</div>
+                        <div class="color-info">
+                            <div class="color-name" style="color: #FFB347;">5@A8: '546C</div>
+                            <div class="color-values">
+                                HEX: #FFB347<br>
+                                RGB: 255, 179, 71<br>
+                                CMYK: 0, 35, 70, 0<br>
+                                <strong>0AB>AC20==O:</strong> "5?;>, 4>ABC?=VABL
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">03 / 10</div>
+        </div>
+
+        <!-- Slide 4: Typography -->
+        <div class="slide slide-4" data-slide="4">
+            <div class="slide-content">
+                <h2 class="section-title">"8?>3@0DV:0</h2>
+                <div class="typography-showcase">
+                    <div class="font-example">
+                        <div class="font-name">! ( $"</div>
+                        <div class="font-display" style="font-family: 'Montserrat', sans-serif; font-weight: 800;">
+                            FUNJU<br>
+                            <span style="font-size: 48px; font-weight: 400;">!>46C</span>
+                        </div>
+                        <div class="font-alphabet" style="font-family: 'Montserrat', sans-serif;">
+                             01234567<br>
+                            ABCDEFGH abcdefgh<br>
+                            1234567890
+                        </div>
+                        <div class="font-usage">
+                            Montserrat Bold  03>;>2:8, =0728 ?@>4C:BV2<br>
+                            Montserrat Regular  A=>2=89 B5:AB
+                        </div>
+                    </div>
+                    <div class="font-example">
+                        <div class="font-name"> !, ( $"</div>
+                        <div class="font-display" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 700;">
+                            ¸ü<br>
+                            <span style="font-size: 48px; font-weight: 400;">\m</span>
+                        </div>
+                        <div class="font-alphabet" style="font-family: 'Noto Sans KR', sans-serif;">
+                            \  Àtìø˜<<br>
+                            1479ABEGH<br>
+                             ˜ä|È¬
+                        </div>
+                        <div class="font-usage">
+                            Noto Sans KR  ;O 02B5=B8G=8E :>@59AL:8E 5;5<5=BV2<br>
+                            8:>@8AB>2CTBLAO 4>7>20=> 4;O :C;LBC@=>W 02B5=B8G=>ABV
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 60px; padding: 30px; background: rgba(230,57,70,0.1); border-radius: 15px; border-left: 4px solid #E63946;">
+                    <strong style="color: #E63946; font-size: 18px;">T@0@EVO B5:ABC:</strong><br>
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 2;">
+                        H1: 64-96px Bold | H2: 48-64px SemiBold | H3: 32-48px SemiBold |
+                        Body: 16-18px Regular | Caption: 12-14px Regular
+                    </span>
+                </div>
+            </div>
+            <div class="slide-number">04 / 10</div>
+        </div>
+
+        <!-- Slide 5: Photography Style -->
+        <div class="slide slide-5" data-slide="5">
+            <div class="slide-content">
+                <h2 class="section-title">!B8;L D>B>3@0DVW</h2>
+                <div style="margin-bottom: 40px;">
+                    <p style="font-size: 20px; color: rgba(255,255,255,0.7); line-height: 1.6;">
+                        <strong style="color: #E63946;">0AB@V9:</strong> /A:@0289, A>FV0;L=89, 02B5=B8G=89<br>
+                        <strong style="color: #E63946;">A2VB;5==O:</strong> 5>=>25, :>=B@0AB=5, I> =0304CT 2C;8FV !5C;0<br>
+                        <strong style="color: #E63946;">!F5=8:</strong> @C7V, A2OB0, :>@59AL:0 W60, <VAL:5 =VG=5 68BBO
+                    </p>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-example" style="background: linear-gradient(135deg, #E63946, #FF6B9D);">
+                        <{
+                        <div class="photo-label">!>FV0;L=V <><5=B8</div>
+                    </div>
+                    <div class="photo-example" style="background: linear-gradient(135deg, #1A1A2E, #0A3A5C);">
+                        <
+                        <div class="photo-label">5>=>20 =VG</div>
+                    </div>
+                    <div class="photo-example" style="background: linear-gradient(135deg, #16DB93, #FFB347);">
+                        <\
+                        <div class="photo-label">>@59AL:0 W60</div>
+                    </div>
+                    <div class="photo-example" style="background: linear-gradient(135deg, #FF6B9D, #E63946);">
+                        <‰
+                        <div class="photo-label">!2OB0</div>
+                    </div>
+                    <div class="photo-example" style="background: linear-gradient(135deg, #0A3A5C, #1A1A2E);">
+                        <Ù
+                        <div class="photo-label">VAL:V AF5=8</div>
+                    </div>
+                    <div class="photo-example" style="background: linear-gradient(135deg, #FFB347, #E63946);">
+                        >B
+                        <div class="photo-label">">AB8 B0 72'O7:8</div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="padding: 20px; background: rgba(230,57,70,0.1); border-radius: 10px;">
+                        <strong style="color: #E63946;">>;>@>:>@5:FVO:</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                            >A8;5=V G5@2>=V B0 75;5=V, 3;81>:V BV=V, OA:@02V 2V41;8A:8
+                        </span>
+                    </div>
+                    <div style="padding: 20px; background: rgba(22,219,147,0.1); border-radius: 10px;">
+                        <strong style="color: #16DB93;">><?>78FVO:</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                            8=0<VG=V :CB8, 25;8:V ?;0=8, I8@V 5<>FVW
+                        </span>
+                    </div>
+                    <div style="padding: 20px; background: rgba(255,107,157,0.1); border-radius: 10px;">
+                        <strong style="color: #FF6B9D;">D5:B8:</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                            5>=>25 A2VBV==O, 75@=8ABVABL ?;V2:8, 1>:5
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">05 / 10</div>
+        </div>
+
+        <!-- Slide 6: Patterns -->
+        <div class="slide slide-6" data-slide="6">
+            <div class="slide-content">
+                <h2 class="section-title">V1;V>B5:0 ?0B5@=V2</h2>
+                <div class="pattern-grid">
+                    <div class="pattern-card">
+                        <div class="pattern-visual pattern-bg-1">
+                            <span style="position: relative; z-index: 1;"><î</span>
+                        </div>
+                        <div class="pattern-info">
+                            <div class="pattern-name">0<5B >460=3<0G0</div>
+                            <div class="pattern-desc">
+                                V03>=0;L=V A<C38, =0BE=5==V B5=B0<8 :>@59AL:8E 2C;8G=8E 70:CA>G=8E.
+                                8:>@8AB0==O: $>=8, C?0:>2:0, <5@G.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-visual pattern-bg-2">
+                            <span style="position: relative; z-index: 1;">(</span>
+                        </div>
+                        <div class="pattern-info">
+                            <div class="pattern-name">5>=>20 AVB:0 !5C;0</div>
+                            <div class="pattern-desc">
+                                "5E=>;>3VG=89 B>G:>289 ?0B5@=, I> 2V4>1@060T <VAL:V 2>3=V.
+                                8:>@8AB0==O: 51-D>=8, 4V468B0; <0B5@V0;8.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-visual pattern-bg-3">
+                            <span style="position: relative; z-index: 1;"><‹</span>
+                        </div>
+                        <div class="pattern-info">
+                            <div class="pattern-name">":0=8=0 %0=1>:</div>
+                            <div class="pattern-desc">
+                                5><5B@8G=0 AVB:0, <>45@=V70FVO B@048FV9=8E :>@59AL:8E B:0=8=.
+                                8:>@8AB0==O: @5<VC< C?0:>2:0, 4@C:>20=V <0B5@V0;8.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pattern-card">
+                        <div class="pattern-visual pattern-bg-4">
+                            <span style="position: relative; z-index: 1; font-size: 120px;"><</span>
+                        </div>
+                        <div class="pattern-info">
+                            <div class="pattern-name">!?;5A: !>46C</div>
+                            <div class="pattern-desc">
+                                8=0<VG=89 3@04VT=B=89 ?0B5@=, I> A8<2>;V7CT @CE @V48=8.
+                                8:>@8AB0==O: =V<0FVW, 48=0<VG=V 5;5<5=B8.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">06 / 10</div>
+        </div>
+
+        <!-- Slide 7: Cultural Elements -->
+        <div class="slide slide-7" data-slide="7">
+            <div class="slide-content">
+                <h2 class="section-title">>@59AL:V :C;LBC@=V V=A09B8</h2>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="culture-korean">\ (Han)</div>
+                        <div class="culture-title">>;5:B82=0 5<>FVO</div>
+                        <div class="culture-desc">
+                            >@59AL:0 :>=F5?FVO :>;5:B82=>3> ?>GCBBO B0 72V;L=5==O G5@57 A2OB:C20==O.
+                            ;81>:89 5<>FV9=89 72'O7>:, O:89 ?>4V;OTBLAO B0 72V;L=OTBLAO @07><.
+                        </div>
+                        <div class="culture-application">
+                            =¡ :F5=B =0 A>FV0;L=5 ?8BBO, A?V;L=V <><5=B8
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-korean"> (Jeong)</div>
+                        <div class="culture-title">;81>:89 72'O7>:</div>
+                        <div class="culture-desc">
+                            ;81>:89 72'O7>:, I> D>@<CTBLAO G5@57 A?V;L=89 4>A2V4 V G0A, ?@>2545=89 @07><.
+                            <>FV9=V C78, O:V 28E>4OBL 70 <56V 728G09=>W 4@C618.
+                        </div>
+                        <div class="culture-application">
+                            =¡ CAB@VGV 4@C7V2, 7=0GCIV B>AB8, @8BC0;8
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-korean">Tt (Hwaiting)</div>
+                        <div class="culture-title">CE ?V4B@8<:8</div>
+                        <div class="culture-desc">
+                            >?C;O@=89 283C:, I> >7=0G0T ""8 <>65H F5 7@>18B8!"  A8<2>; ?V4B@8<:8
+                            B0 70>E>G5==O 2 :>@59AL:V9 :C;LBC@V.
+                        </div>
+                        <div class="culture-application">
+                            =¡ !2OB:>2V <><5=B8, 4>AO3=5==O FV;59
+                        </div>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-korean">`P (Aegyo)</div>
+                        <div class="culture-title">@09;825 G0@V2=VABL</div>
+                        <div class="culture-desc">
+                            8;0, 3@09;820 ?>254V=:0, FV=>20=0 2 :>@59AL:V9 :C;LBC@V. 53:VABL,
+                            =528<CH5=VABL B0 G0@V2=VABL C A?V;:C20==V.
+                        </div>
+                        <div class="culture-application">
+                            =¡ @09;820 C?0:>2:0, ;53:89 B>= 1@5=40
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; padding: 30px; background: rgba(230,57,70,0.05); border-radius: 15px; border: 2px solid #E63946;">
+                    <strong style="color: #E63946; font-size: 20px;">;NG>25 ?>A;0==O:</strong><br>
+                    <p style="font-size: 18px; color: rgba(255,255,255,0.8); margin-top: 15px; line-height: 1.6;">
+                        FUNJU  F5 =5 ?@>AB> =0?V9. &5 ?>@B0; 4> :>@59AL:>W :C;LBC@8, A?>AV1 2V4GCB8
+                        3;81>:V 5<>FV9=V 72'O7:8 B0 A2OB:C20==O 68BBO ?>-:>@59AL:8.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-number">07 / 10</div>
+        </div>
+
+        <!-- Slide 8: Illustration Style -->
+        <div class="slide slide-8" data-slide="8">
+            <div class="slide-content">
+                <h2 class="section-title">!B8;L V;NAB@0FV9</h2>
+                <div class="illustration-grid">
+                    <div class="illustration-card">
+                        <span class="illustration-icon"><ï</span>
+                        <div class="illustration-title">!8;C5B8 !5C;0</div>
+                        <div class="illustration-desc">
+                            560 N Seoul, 3>@87>=B 0==0<C,
+                            7=0:>2V :>@59AL:V ;>:0FVW 2 <V=V<0;VAB8G=><C AB8;V
+                        </div>
+                    </div>
+                    <div class="illustration-card">
+                        <span class="illustration-icon">=œ</span>
+                        <div class="illustration-title">K-pop 3@0DV:0</div>
+                        <div class="illustration-desc">
+                            !<V;82V D>@<8, 3@04VT=B8,
+                            3>;>3@0DVG=V 5D5:B8,
+                            =0BE=5==V K-pop 5AB5B8:>N
+                        </div>
+                    </div>
+                    <div class="illustration-card">
+                        <span class="illustration-icon"><¨</span>
+                        <div class="illustration-title">>45@=V7< %0=1>:</div>
+                        <div class="illustration-desc">
+                            "@048FV9=V :>@59AL:V 2V75@C=:8
+                            2 35><5B@8G=8E ACG0A=8E
+                            D>@<0E
+                        </div>
+                    </div>
+                    <div class="illustration-card">
+                        <span class="illustration-icon"><v</span>
+                        <div class="illustration-title">:>=:0 ?;OH:8</div>
+                        <div class="illustration-desc">
+                            !B8;V7>20=V, :>;5:FV9=V
+                            V;NAB@0FVW ?;OH:8 A>46C
+                        </div>
+                    </div>
+                    <div class="illustration-card">
+                        <span class="illustration-icon"></span>
+                        <div class="illustration-title">%0=38;L B8?>-0@B</div>
+                        <div class="illustration-desc">
+                            >@59AL:V ;VB5@8 O:
+                            45:>@0B82=V EC4>6=V
+                            5;5<5=B8
+                        </div>
+                    </div>
+                    <div class="illustration-card">
+                        <span class="illustration-icon">=§</span>
+                        <div class="illustration-title">8=0<V:0 @V48=8</div>
+                        <div class="illustration-desc">
+                            =V<0FVW A?;5A:C, @CE,
+                            3@0DV:0 B5:CG>ABV 4;O 251
+                            B0 4V468B0;
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px; padding: 40px; background: linear-gradient(135deg, rgba(230,57,70,0.1), rgba(22,219,147,0.1)); border-radius: 20px;">
+                    <strong style="color: #E63946; font-size: 20px;">@8=F8?8 48709=C:</strong>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                        <div>
+                            <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">( !<V;82VABL</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.7);">
+                                /A:@02V :>;L>@8, =5A?>4V20=V :><1V=0FVW
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;"><¯ @>AB>B0</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.7);">
+                                '8ABV ;V=VW, <V=V<0;V7<
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">=% =5@3VO</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.7);">
+                                8=0<V:0, @CE, 68BBO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">08 / 10</div>
+        </div>
+
+        <!-- Slide 9: Website Mockup -->
+        <div class="slide slide-9" data-slide="9">
+            <div class="slide-content">
+                <h2 class="section-title">>=F5?FVO 251-A09BC</h2>
+                <div class="website-mockup">
+                    <div class="browser-bar">
+                        <div class="browser-dot"></div>
+                        <div class="browser-dot"></div>
+                        <div class="browser-dot"></div>
+                        <div style="margin-left: 20px; color: rgba(255,255,255,0.5); font-size: 14px;">
+                            funju.ua
+                        </div>
+                    </div>
+                    <div class="website-content">
+                        <div class="korean-text" style="font-size: 32px; margin-bottom: 20px;">¸ü</div>
+                        <h1 class="mockup-hero"> !, #%<br># !, '</h1>
+                        <p class="mockup-text">
+                            V4:@89 4;O A515 A?@026=V9 :>@59AL:89 A>46C.<br>
+                            ;02=89. !<0G=89. 2B5=B8G=89.
+                        </p>
+                        <a href="#" class="mockup-button">! #"  </a>
+
+                        <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: left;">
+                            <div style="padding: 30px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                                <div style="font-size: 48px; margin-bottom: 15px;"><N</div>
+                                <h3 style="font-size: 24px; margin-bottom: 10px; color: #FF6B9D;">/#</h3>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                                    !2V689 O1;CG=89 A<0: 7 =>B:0<8 AB83;8E D@C:BV2
+                                </p>
+                            </div>
+                            <div style="padding: 30px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                                <div style="font-size: 48px; margin-bottom: 15px;"><J</div>
+                                <h3 style="font-size: 24px; margin-bottom: 10px; color: #16DB93;">&" #!</h3>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                                    &8B@CA>289 281CE 7 >A2V60NG8< ?VA;OA<0:><
+                                </p>
+                            </div>
+                            <div style="padding: 30px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                                <div style="font-size: 48px; margin-bottom: 15px;">(</div>
+                                <h3 style="font-size: 24px; margin-bottom: 10px; color: #E63946;">! </h3>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.6);">
+                                    >2V A<0:8 265 2 @>7@>1FV
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center;">
+                        <strong style="color: #E63946;">Paralax</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">D5:B8 ?@>:@CB:8</span>
+                    </div>
+                    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center;">
+                        <strong style="color: #16DB93;">3D <>45;L</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">15@B0==O ?;OH:8</span>
+                    </div>
+                    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center;">
+                        <strong style="color: #FF6B9D;">=V<0FVW</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">;02=V ?5@5E>48</span>
+                    </div>
+                    <div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center;">
+                        <strong style="color: #FFB347;">Mobile-first</strong><br>
+                        <span style="font-size: 14px; color: rgba(255,255,255,0.6);">40?B82=89 48709=</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">09 / 10</div>
+        </div>
+
+        <!-- Slide 10: Final -->
+        <div class="slide slide-10" data-slide="10">
+            <div class="slide-content">
+                <div class="final-message">
+                    <h1 class="final-title">FUNJU</h1>
+                    <p class="final-korean">¸ü@ hØ</p>
+                    <p class="final-tagline">
+                        >@59AL:89 4CE. #:@0W=AL:0 4CH0.<br>
+                        ;>10;L=5 A2OB:C20==O.
+                    </p>
+                    <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;">
+                        <div>
+                            <div style="font-size: 64px; font-weight: 800; color: #fff; margin-bottom: 10px;">01</div>
+                            <div style="font-size: 18px; color: rgba(255,255,255,0.8);">2B5=B8G=VABL<br>:C;LBC@8</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 64px; font-weight: 800; color: #fff; margin-bottom: 10px;">02</div>
+                            <div style="font-size: 18px; color: rgba(255,255,255,0.8);">!CG0A=89<br>48709=</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 64px; font-weight: 800; color: #fff; margin-bottom: 10px;">03</div>
+                            <div style="font-size: 18px; color: rgba(255,255,255,0.8);">@5<VC<<br>O:VABL</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 60px; padding: 40px; background: rgba(0,0,0,0.3); border-radius: 20px; backdrop-filter: blur(10px);">
+                        <p style="font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.8;">
+                            &59 1@5=41C:  68289 4>:C<5=B, O:89 1C45 52>;NFV>=C20B8<br>
+                            @07>< 7 @>728B:>< FUNJU B0 :>@59AL:>W E28;V 2 #:@0W=V.<br><br>
+                            <strong style="color: #fff;">>B>2V 7<V=8B8 :C;LBC@C ?8BBO 2 #:@0W=V?</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">10 / 10</div>
+        </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav" id="nav"></div>
+
+    <script>
+        // Navigation setup
+        const slides = document.querySelectorAll('.slide');
+        const nav = document.getElementById('nav');
+        const presentation = document.getElementById('presentation');
+
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                slide.scrollIntoView({ behavior: 'smooth' });
+            });
+            nav.appendChild(dot);
+        });
+
+        // Update active dot on scroll
+        presentation.addEventListener('scroll', () => {
+            const scrollPosition = presentation.scrollTop;
+            const windowHeight = window.innerHeight;
+
+            slides.forEach((slide, index) => {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+
+                if (scrollPosition >= slideTop - windowHeight / 2 &&
+                    scrollPosition < slideBottom - windowHeight / 2) {
+                    document.querySelectorAll('.nav-dot').forEach(dot => {
+                        dot.classList.remove('active');
+                    });
+                    nav.children[index].classList.add('active');
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const activeIndex = Array.from(document.querySelectorAll('.nav-dot'))
+                .findIndex(dot => dot.classList.contains('active'));
+
+            if (e.key === 'ArrowDown' && activeIndex < slides.length - 1) {
+                slides[activeIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' && activeIndex > 0) {
+                slides[activeIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
