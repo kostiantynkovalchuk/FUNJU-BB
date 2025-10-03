@@ -692,6 +692,27 @@
         opacity: 0.9;
       }
 
+      .final-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .final-number {
+        font-size: 64px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .final-label {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
       /* Responsive */
       @media (max-width: 1024px) {
         .slide {
@@ -801,6 +822,24 @@
 
         .final-korean {
           font-size: 32px;
+        }
+
+        .final-tagline {
+          font-size: 24px;
+        }
+
+        .final-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          margin-top: 40px;
+        }
+
+        .final-number {
+          font-size: 48px;
+        }
+
+        .final-label {
+          font-size: 16px;
         }
       }
     </style>
@@ -1605,57 +1644,22 @@
             <h1 class="final-title">FUNJU</h1>
             <p class="final-korean">소주와 함께</p>
             <p class="final-tagline">Made for Fun</p>
-            <div
-              style="
-                margin-top: 80px;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-                text-align: center;
-              "
-            >
+            <div class="final-grid">
               <div>
-                <div
-                  style="
-                    font-size: 64px;
-                    font-weight: 800;
-                    color: #fff;
-                    margin-bottom: 10px;
-                  "
-                >
-                  01
-                </div>
-                <div style="font-size: 18px; color: rgba(255, 255, 255, 0.8)">
+                <div class="final-number">01</div>
+                <div class="final-label">
                   Автентичність<br />культури
                 </div>
               </div>
               <div>
-                <div
-                  style="
-                    font-size: 64px;
-                    font-weight: 800;
-                    color: #fff;
-                    margin-bottom: 10px;
-                  "
-                >
-                  02
-                </div>
-                <div style="font-size: 18px; color: rgba(255, 255, 255, 0.8)">
+                <div class="final-number">02</div>
+                <div class="final-label">
                   Сучасний<br />вайб
                 </div>
               </div>
               <div>
-                <div
-                  style="
-                    font-size: 64px;
-                    font-weight: 800;
-                    color: #fff;
-                    margin-bottom: 10px;
-                  "
-                >
-                  03
-                </div>
-                <div style="font-size: 18px; color: rgba(255, 255, 255, 0.8)">
+                <div class="final-number">03</div>
+                <div class="final-label">
                   Преміум<br />якість
                 </div>
               </div>
