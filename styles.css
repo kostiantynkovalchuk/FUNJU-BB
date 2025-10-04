@@ -697,6 +697,29 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Site Features Grid */
+.site-features-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.site-features-grid > div {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (max-width: 700px) {
+  .site-features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .slide {
