@@ -715,8 +715,10 @@ body {
 /* Responsive: stack vertically on mobile */
 @media (max-width: 700px) {
   .site-features-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: block !important;
+  }
+  .site-features-grid > div {
+    margin-bottom: 16px;
   }
 }
 
