@@ -758,7 +758,11 @@
             Попередній перегляд вебсайту вбудовано нижче. Прокрутіть це вікно,
             щоб переглянути прототип 👇
           </p>
-          <div class="website-mockup" style="margin-top: 32px">
+          <div
+            class="website-mockup"
+            style="margin-top: 32px; position: relative; cursor: pointer"
+            onclick="window.open('https://funju.bar/', '_blank')"
+          >
             <iframe
               src="https://funju.bar/"
               title="FUNJU Website"
@@ -768,6 +772,7 @@
                 border-radius: 20px;
                 border: none;
                 box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+                pointer-events: none;
               "
               allowfullscreen
             ></iframe>
